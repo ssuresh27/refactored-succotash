@@ -1,3 +1,5 @@
+#https://docs.github.com/en/actions/managing-workflow-runs/skipping-workflow-runs
+#Add commit message [skip ci] to skip workflow
 name : Workflow Status
 on : push 
 jobs: 
