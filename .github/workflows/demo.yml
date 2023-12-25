@@ -9,7 +9,7 @@ jobs:
             op1: ${{steps.step1.output.demo}}
         steps:
             - name : hello-world
-            - id : step1
+              id : step1
               run: echo "demo=Hello World" >> $GITHUB_OUTPUT
     input-wf:
         runs-on : ubuntu-latest
