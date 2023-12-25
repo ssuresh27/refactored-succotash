@@ -11,8 +11,9 @@ jobs:
             - name : hello-world
             - id : step1
               run: echo "demo=Hello World" >> $GITHUB_OUTPUT
-   input-wf:
+    input-wf:
         runs-on : ubuntu-latest
+        needs: output-wf
         steps:
             - name : input-from-output-wf
               run  : echo "Output from above steps ${{needs.steps.outputs.demo}}"
