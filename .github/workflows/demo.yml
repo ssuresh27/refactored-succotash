@@ -6,14 +6,14 @@ jobs:
     output-wf:
         runs-on : ubuntu-latest
         outputs:
-            op1: ${{steps.step1.output.demo}}
+            op1: ${{steps.hello.outputs.demo}}
         steps:
             - name : hello-world
-              id : step1
+              id : hello
               run: echo "demo=Hello World" >> $GITHUB_OUTPUT
     input-wf:
         runs-on : ubuntu-latest
         needs: output-wf
         steps:
             - name : input-from-output-wf
-              run  : echo "Output from above steps ${{needs.steps.outputs.demo}}"
+              run  : echo "Output from above steps ${{needs.output-wf.outputs.op1}}"
